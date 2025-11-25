@@ -59,9 +59,9 @@
   </main>
   <footer>© 2025 OpalForge — Precision Authenticated.</footer>
 
-  <!-- TensorFlow.js (pin to a fixed version if you want: e.g., @4.0.0) -->
+  <!-- TensorFlow.js - load first (no defer) so tf is available to app.js -->
   <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs" crossorigin="anonymous"></script>
-  <!-- Application script moved to external file to allow stricter CSP and easier auditing -->
+  <!-- Application script moved to external file -->
   <script src="static/js/app.js" defer></script>
 </body>
 </html>
