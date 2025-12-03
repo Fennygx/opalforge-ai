@@ -68,8 +68,8 @@
       loader.style.display = 'block';
       output.textContent = 'Activating OpalForge v1...';
 
-      // This path works 100% when model/ is in repo root
-      const modelUrl = '/model/model.json';
+      // GitHub raw URL — reliable for binaries
+      const modelUrl = 'https://raw.githubusercontent.com/Fennyx/opalforge-ai/main/model/model.json';
 
       try {
         model = await tf.loadLayersModel(modelUrl);
@@ -78,7 +78,7 @@
       } catch (err) {
         console.error('Model load failed:', err);
         loader.style.display = 'none';
-        output.textContent = 'Model failed to load. Confirm: repo root → model → model.json + weights.bin';
+        output.textContent = 'Activation fault. Verify raw GitHub access.';
       }
     }
 
