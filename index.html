@@ -68,11 +68,8 @@
       loader.style.display = 'block';
       output.textContent = 'Activating OpalForge v1...';
 
-      // OPTION 1: Use this if your model is in the same repo (recommended)
-      const modelUrl = '/model/model.json';  
-
-      // OPTION 2: Uncomment below if you prefer raw GitHub URL (also works perfectly)
-      // const modelUrl = 'https://raw.githubusercontent.com/YOUR-USERNAME/YOUR-REPO/main/model/model.json';
+      // This path works 100% when model/ is in repo root
+      const modelUrl = '/model/model.json';
 
       try {
         model = await tf.loadLayersModel(modelUrl);
@@ -81,7 +78,7 @@
       } catch (err) {
         console.error('Model load failed:', err);
         loader.style.display = 'none';
-        output.textContent = 'Model not found. Ensure /model/model.json and weights.bin are in your repo root.';
+        output.textContent = 'Model failed to load. Confirm: repo root → model → model.json + weights.bin';
       }
     }
 
